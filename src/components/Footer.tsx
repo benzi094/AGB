@@ -21,7 +21,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center mb-6">
               <div className="bg-white px-2 py-1 rounded-[6px] border border-accent">
-                <Logo className="h-12 w-[146px]" />
+                <Logo className="h-14 w-[135px]" />
               </div>
             </div>
             <p className="text-white/60 text-sm leading-relaxed font-inter">

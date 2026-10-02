@@ -68,7 +68,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="#home" aria-label="African Global Business - Accueil" className="flex items-center group">
             <div className="bg-white px-2 py-1 rounded-[6px] border border-accent group-hover:border-primary transition-colors">
-              <Logo className="h-9 w-[110px] md:h-10 md:w-[122px]" />
+              <Logo className="h-10 w-[96px] md:h-12 md:w-[116px]" />
             </div>
           </Link>
 

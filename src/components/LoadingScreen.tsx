@@ -69,7 +69,7 @@ export default function LoadingScreen() {
               <div className="absolute -inset-2 border border-accent opacity-30 pointer-events-none" />
               
               <div className="bg-white px-3 py-2 rounded-[4px]">
-                <Logo className="h-16 w-[195px]" />
+                <Logo className="h-20 w-[193px]" />
               </div>
             </motion.div>
 
