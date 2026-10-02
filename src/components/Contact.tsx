@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, PhoneCall, Layers, Briefcase, ArrowRight, Navigation } from "lucide-react";
+import { MapPin, PhoneCall, Layers, Briefcase, ArrowRight } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -37,8 +37,16 @@ export default function Contact() {
                     Siège
                   </h3>
                   <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-inter">
-                    Hamdallaye, Ratoma, Conakry, Guinée
+                    Hamdallaye Concasseur, Ratoma, Conakry, Guinée
                   </p>
+                  <a
+                    href="https://maps.app.goo.gl/7o3p2nPGrarHjega7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-primary text-xs font-bold font-oswald uppercase tracking-wider hover:underline"
+                  >
+                    Voir sur Google Maps
+                  </a>
                 </div>
               </div>
 
@@ -99,74 +107,28 @@ export default function Contact() {
           </div>
 
           {/* Right Column: Google Maps Architectural Mockup */}
-          <div className="lg:col-span-7 bg-dark-section border-4 border-secondary rounded-[6px] relative overflow-hidden min-h-[400px] flex flex-col justify-between p-6 geo-border-orange shadow-lg">
+          <div className="lg:col-span-7 bg-dark-section border-4 border-secondary rounded-[6px] relative overflow-hidden min-h-[400px] flex flex-col justify-end p-4 geo-border-orange shadow-lg">
             
-            {/* Architectural Background Grid for Blueprint Map Look */}
-            <div className="absolute inset-0 bg-secondary/20 pointer-events-none" />
-            <div className="absolute inset-0 industrial-grid-dark opacity-20 pointer-events-none" />
-            
-            {/* SVG stylized map outline representing a street grid */}
-            <svg 
-              className="absolute inset-0 w-full h-full text-slate-800/60 pointer-events-none" 
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
+            <iframe
+              title="Localisation d'AGB sur Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.814093957212!2d-13.649724752701912!3d9.56992745804862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xf1cd6909302bf57%3A0x6b5f51ab7a241b6b!2sH992%2BR9V%2C%20Unnamed%20Road%2C%20Conakry%2C%20Guin%C3%A9e!5e0!3m2!1sfr!2s!4v1790952663420!5m2!1sfr!2s"
+              className="absolute inset-0 w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+
+            {/* Lien vers Google Maps */}
+            <a
+              href="https://maps.app.goo.gl/7o3p2nPGrarHjega7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative z-10 self-start bg-secondary/95 border border-white/10 p-3 rounded-[6px] text-xs text-white max-w-[220px] font-inter hover:border-primary transition-colors"
             >
-              <g stroke="currentColor" strokeWidth="2" fill="none">
-                {/* Horizontal & Vertical structural roads */}
-                <line x1="0" y1="50" x2="100%" y2="50" />
-                <line x1="0" y1="150" x2="100%" y2="150" />
-                <line x1="0" y1="280" x2="100%" y2="280" />
-                <line x1="0" y1="360" x2="100%" y2="360" />
-
-                <line x1="100" y1="0" x2="100" y2="100%" />
-                <line x1="280" y1="0" x2="280" y2="100%" />
-                <line x1="450" y1="0" x2="450" y2="100%" />
-                <line x1="600" y1="0" x2="600" y2="100%" />
-
-                {/* Diagonal secondary access lines */}
-                <line x1="0" y1="0" x2="400" y2="400" strokeWidth="1" strokeDasharray="5,5" />
-                <line x1="200" y1="0" x2="600" y2="400" strokeWidth="1" strokeDasharray="5,5" />
-              </g>
-
-              {/* Waterway shape representation */}
-              <path d="M 0,20 Q 150,80 300,120 T 600,180 L 600,0 L 0,0 Z" fill="rgba(220,1,17, 0.05)" />
-            </svg>
-
-            {/* Header coordinates detail banner */}
-            <div className="relative z-10 flex justify-between items-center bg-secondary/80 border border-white/10 px-4 py-2 text-[10px] text-white/60 font-mono tracking-widest uppercase">
-              <span className="flex items-center"><Layers className="w-3.5 h-3.5 text-primary-light mr-1.5" /> RATOMA · CONAKRY</span>
-              <span>GUINÉE</span>
-            </div>
-
-            {/* Stylized Marker Point */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10 flex flex-col items-center">
-              {/* Pulsing ring overlay */}
-              <span className="absolute w-12 h-12 rounded-full bg-primary/20 border border-primary animate-ping" />
-              
-              {/* Marker pin */}
-              <div className="bg-primary hover:bg-primary-dark border-2 border-white text-white p-3 rounded-full shadow-lg relative flex items-center justify-center cursor-pointer">
-                <Navigation className="w-5 h-5 rotate-45 text-white" />
-              </div>
-
-              {/* Label */}
-              <div className="mt-3 bg-secondary/95 text-white font-oswald text-xs font-bold uppercase tracking-widest px-3 py-1.5 border border-primary rounded-[6px] shadow-md whitespace-nowrap">
-                AGB
-              </div>
-            </div>
-
-            {/* Map UI Control Mockup */}
-            <div className="relative z-10 flex justify-between items-end">
-              <div className="bg-secondary/90 border border-white/10 p-3 rounded-[6px] text-xs text-white max-w-[200px] font-inter">
-                <h4 className="font-bold text-accent mb-0.5">Siège AGB</h4>
-                <p className="text-[10px] text-white/60">Hamdallaye, Ratoma, Conakry</p>
-              </div>
-
-              <div className="flex flex-col space-y-1 bg-secondary border border-white/10 p-1 rounded-[6px]">
-                <button aria-label="Zoom avant" className="w-8 h-8 flex items-center justify-center text-white hover:bg-slate-700 font-bold transition-colors cursor-pointer">+</button>
-                <div className="h-[1px] bg-white/10" />
-                <button aria-label="Zoom arrière" className="w-8 h-8 flex items-center justify-center text-white hover:bg-slate-700 font-bold transition-colors cursor-pointer">-</button>
-              </div>
-            </div>
+              <h4 className="font-bold text-accent mb-0.5">Siège AGB</h4>
+              <p className="text-[10px] text-white/60">Hamdallaye Concasseur, Ratoma, Conakry</p>
+              <span className="text-[10px] text-primary-light font-bold uppercase tracking-wider">Ouvrir dans Google Maps</span>
+            </a>
 
           </div>
 

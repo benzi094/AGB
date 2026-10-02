@@ -65,7 +65,7 @@ export default function QuoteRequest() {
               </div>
               <div className="flex items-center space-x-3 text-xs text-white/70 font-inter">
                 <Shield className="w-5 h-5 text-accent shrink-0" />
-                <span>Basée à Hamdallaye, Ratoma, Conakry</span>
+                <span>Basée à Hamdallaye Concasseur, Ratoma, Conakry</span>
               </div>
             </div>
           </div>

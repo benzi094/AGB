@@ -108,7 +108,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-8 border-y border-white/10 mb-8 text-sm">
           <div className="flex items-center space-x-3">
             <MapPin className="w-5 h-5 text-primary-light shrink-0" />
-            <span className="text-white/75 font-inter">Hamdallaye, Ratoma, Conakry, Guinée</span>
+            <a
+              href="https://maps.app.goo.gl/7o3p2nPGrarHjega7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/75 font-inter hover:text-white transition-colors"
+            >
+              Hamdallaye Concasseur, Ratoma, Conakry, Guinée
+            </a>
           </div>
           <div className="flex items-center space-x-3">
             <Layers className="w-5 h-5 text-primary-light shrink-0" />

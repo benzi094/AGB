@@ -38,7 +38,7 @@ const TEAM_MEMBERS: Member[] = [
   {
     name: "Conakry",
     role: "Positionnement",
-    desc: "Siège à Hamdallaye, Ratoma, Conakry, Guinée.",
+    desc: "Siège à Hamdallaye Concasseur, Ratoma, Conakry, Guinée.",
     icon: <MapPin className="w-20 h-20" />,
   },
 ];
@@ -79,7 +79,7 @@ export default function Team() {
               className="bg-bg-light border-4 border-slate-200 hover:border-primary rounded-[6px] overflow-hidden transition-all duration-300 flex flex-col group relative"
             >
               {/* Asymmetrical top offset layout effect */}
-              <div className="relative aspect-[3/4] w-full bg-secondary overflow-hidden flex items-center justify-center">
+              <div className="relative h-[140px] w-full shrink-0 bg-secondary overflow-hidden flex items-center justify-center">
                 <div className="absolute inset-0 industrial-grid-dark opacity-10 pointer-events-none" />
                 <div className="relative text-primary-light transition-transform duration-500 group-hover:scale-110">
                   {member.icon}
@@ -98,7 +98,7 @@ export default function Team() {
               </div>
 
               {/* Text description */}
-              <div className="p-4 flex-grow flex flex-col justify-between bg-white border-t border-slate-100">
+              <div className="p-4 h-[125px] flex flex-col justify-between bg-white border-t border-slate-100">
                 <div>
                   <h3 className="font-oswald text-base font-extrabold text-secondary uppercase group-hover:text-primary transition-colors tracking-wide truncate">
                     {member.name}

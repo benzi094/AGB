@@ -132,7 +132,7 @@ export default function About() {
                 </div>
                 <div>
                   <h4 className="font-oswald text-lg font-bold uppercase tracking-wider">Basée à Conakry</h4>
-                  <p className="text-xs text-white/60 font-inter mt-0.5">Hamdallaye, Ratoma, Conakry, Guinée</p>
+                  <p className="text-xs text-white/60 font-inter mt-0.5">Hamdallaye Concasseur, Ratoma, Conakry, Guinée</p>
                 </div>
               </div>
               <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs text-white/80 font-inter w-full md:w-auto">
