@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Target, Eye, Calendar, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Target, Eye, Calendar, ChevronRight, Quote } from "lucide-react";
 import AnimatedCounter from "./AnimatedCounter";
 
 const MILESTONES = [
@@ -190,6 +191,45 @@ export default function About() {
           </div>
 
         </div>
+
+        {/* Message de la direction */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 grid grid-cols-1 lg:grid-cols-12 bg-secondary text-white rounded-[6px] border-4 border-slate-700 overflow-hidden geo-border-orange"
+        >
+          {/* Photo (cadrée sur le portrait, sans le texte intégré) */}
+          <div className="lg:col-span-5 relative aspect-[1350/830] lg:aspect-auto lg:min-h-[380px] bg-slate-800 overflow-hidden">
+            <Image
+              src="/direction-portrait.jpg"
+              alt="Mamadou Camara, Directeur Général d'AGB"
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover object-[50%_20%]"
+            />
+          </div>
+
+          {/* Message */}
+          <figure className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center border-t-4 lg:border-t-0 lg:border-l-4 border-accent">
+            <span className="text-primary-light font-bold text-xs tracking-[0.25em] uppercase block mb-4">
+              Message de la direction
+            </span>
+            <Quote className="w-10 h-10 text-accent mb-4" />
+            <blockquote className="text-white/90 text-base md:text-lg leading-relaxed font-inter">
+              « Le développement durable d’une nation repose sur des actions concrètes et des partenaires de confiance. Chez AGB, nous croyons que chaque projet est une opportunité de bâtir un avenir solide, où infrastructures, logistique et services s’unissent pour transformer la Guinée et l’Afrique. »
+            </blockquote>
+            <figcaption className="mt-6 pt-6 border-t border-white/15">
+              <span className="font-oswald text-xl font-bold uppercase tracking-wider text-white block">
+                Mamadou Camara
+              </span>
+              <span className="text-xs font-bold uppercase tracking-widest text-accent font-inter">
+                Directeur Général AGB
+              </span>
+            </figcaption>
+          </figure>
+        </motion.div>
 
       </div>
     </section>
