@@ -24,11 +24,11 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "Quelles réalisations AGB présente-t-elle ?",
-    answer: "Dans le secteur BTP & Construction, AGB présente le projet de réhabilitation du Collège Damakania, un projet de construction et travaux dans la zone de Nongo, ainsi qu'un projet dans le secteur de Matam / Carrière.",
+    answer: "Dans le secteur BTP & Construction, AGB présente le projet de réhabilitation du Collège Damakania, un projet de construction et travaux dans la zone de Nongo, ainsi que la réhabilitation du Collège et Lycée Général Lansana Conté de Kindia.",
   },
   {
     question: "Comment parler de mon projet avec AGB ?",
-    answer: "Vous pouvez nous joindre par téléphone au +224 628 18 71 00 ou utiliser la section « Parler de votre projet » de cette page pour décrire votre besoin.",
+    answer: "Vous pouvez nous joindre par téléphone au +224 614 58 56 56 ou utiliser la section « Parler de votre projet » de cette page pour décrire votre besoin.",
   },
   {
     question: "Quelles sont les valeurs d'AGB ?",

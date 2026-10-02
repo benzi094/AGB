@@ -16,7 +16,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "BTP & Infrastructures",
     role: "Domaine 1",
     company: "Construction & travaux",
-    quote: "Construction, réhabilitation et travaux : des projets tels que le Collège Damakania, Nongo et Matam / Carrière illustrent notre activité dans le BTP & la construction.",
+    quote: "Construction, réhabilitation et travaux : des projets tels que le Collège Damakania, Nongo et le Collège et Lycée Général Lansana Conté illustrent notre activité dans le BTP & la construction.",
   },
   {
     name: "Logistique & Import-Export",

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HardHat, Eye, X, Compass } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Project {
   id: number;
@@ -11,6 +12,7 @@ interface Project {
   category: "btp";
   categoryLabel: string;
   description: string;
+  image?: string;
 }
 
 const PROJECTS: Project[] = [
@@ -20,6 +22,7 @@ const PROJECTS: Project[] = [
     category: "btp",
     categoryLabel: "BTP & Construction",
     description: "Projet de réhabilitation du Collège Damakania réalisé par AGB.",
+    image: "/Damakania.jpg",
   },
   {
     id: 2,
@@ -27,13 +30,15 @@ const PROJECTS: Project[] = [
     category: "btp",
     categoryLabel: "BTP & Construction",
     description: "Projet de construction et travaux réalisé dans la zone de Nongo.",
+    image: "/Nongo.jpg",
   },
   {
     id: 3,
-    title: "Matam / Carrière",
+    title: "Collège et Lycée Général Lansana Conté",
     category: "btp",
     categoryLabel: "BTP & Construction",
-    description: "Projet réalisé dans le secteur de Matam / Carrière.",
+    description: "Projet de réhabilitation du Collège et Lycée Général Lansana Conté de Kindia réalisé par AGB.",
+    image: "/kindia.jpg",
   },
 ];
 
@@ -100,14 +105,24 @@ export default function Projects() {
                 className="bg-white border-4 border-slate-200 rounded-[6px] overflow-hidden hover:border-primary transition-all duration-300 flex flex-col group shadow-sm hover:shadow-lg cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
-                {/* Image Wrap (visuel réel AGB à intégrer ultérieurement) */}
+                {/* Image Wrap */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:opacity-85">
-                    <HardHat className="w-12 h-12 text-primary-light/70" />
-                    <span className="mt-2 text-[10px] font-bold uppercase tracking-widest text-white/40 font-inter">
-                      Visuel à venir
-                    </span>
-                  </div>
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:opacity-85">
+                      <HardHat className="w-12 h-12 text-primary-light/70" />
+                      <span className="mt-2 text-[10px] font-bold uppercase tracking-widest text-white/40 font-inter">
+                        Visuel à venir
+                      </span>
+                    </div>
+                  )}
 
                   {/* Category Accent Badge */}
                   <div className="absolute top-4 left-4 bg-secondary text-accent text-[10px] font-bold font-oswald tracking-widest uppercase px-3 py-1.5 border border-accent/25 rounded-[4px]">
@@ -174,14 +189,24 @@ export default function Projects() {
                   <X className="w-5 h-5" />
                 </button>
 
-                {/* Banner (visuel réel AGB à intégrer ultérieurement) */}
+                {/* Banner */}
                 <div className="relative h-64 w-full bg-slate-900">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900">
-                    <HardHat className="w-16 h-16 text-primary-light/70" />
-                    <span className="mt-2 text-[10px] font-bold uppercase tracking-widest text-white/40 font-inter">
-                      Visuel à venir
-                    </span>
+                  {selectedProject.image ? (
+                    <Image
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      fill
+                      sizes="(min-width: 672px) 672px, 100vw"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900">
+                      <HardHat className="w-16 h-16 text-primary-light/70" />
+                      <span className="mt-2 text-[10px] font-bold uppercase tracking-widest text-white/40 font-inter">
+                        Visuel à venir
+                      </span>
                   </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <span className="text-accent font-bold font-oswald text-xs uppercase tracking-widest bg-primary/20 px-2 py-1 border border-accent/20 rounded">

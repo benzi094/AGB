@@ -32,7 +32,7 @@ const REASONS = [
   },
   {
     title: "Interlocuteur direct",
-    desc: "Échangez directement avec notre équipe au +224 628 18 71 00.",
+    desc: "Échangez directement avec notre équipe au +224 614 58 56 56.",
     icon: <PhoneCall className="w-6 h-6 text-accent-dark" />,
   },
 ];
@@ -72,6 +72,7 @@ export default function WhyChooseUs() {
                 src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
                 alt="Illustration de chantier"
                 fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               

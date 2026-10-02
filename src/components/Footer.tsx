@@ -65,7 +65,7 @@ export default function Footer() {
               {[
                 "Collège Damakania",
                 "Nongo",
-                "Matam / Carrière",
+                "Collège et Lycée Lansana Conté",
               ].map((project, i) => (
                 <li key={i}>
                   <Link 
@@ -95,8 +95,8 @@ export default function Footer() {
                 <h4 className="text-xs text-accent font-bold uppercase tracking-wider font-oswald">
                   Téléphone
                 </h4>
-                <a href="tel:+224628187100" className="text-sm font-bold block hover:text-primary-light transition-colors font-inter mt-0.5">
-                  +224 628 18 71 00
+                <a href="tel:+224614585656" className="text-sm font-bold block hover:text-primary-light transition-colors font-inter mt-0.5">
+                  +224 614 58 56 56
                 </a>
               </div>
             </div>
@@ -127,8 +127,8 @@ export default function Footer() {
           </div>
           <div className="flex items-center space-x-3">
             <PhoneCall className="w-5 h-5 text-primary-light shrink-0" />
-            <a href="tel:+224628187100" className="text-white/75 hover:text-primary-light transition-colors font-inter">
-              +224 628 18 71 00
+            <a href="tel:+224614585656" className="text-white/75 hover:text-primary-light transition-colors font-inter">
+              +224 614 58 56 56
             </a>
           </div>
         </div>

@@ -11,15 +11,11 @@ import FAQ from "@/components/FAQ";
 import QuoteRequest from "@/components/QuoteRequest";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import LoadingScreen from "@/components/LoadingScreen";
 import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   return (
     <>
-      {/* Loading Overlay */}
-      <LoadingScreen />
-
       {/* Main Navigation */}
       <Navbar />
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, PhoneCall } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import ScrollProgressBar from "./ScrollProgressBar";
 import Logo from "./Logo";
@@ -99,13 +99,6 @@ export default function Navbar() {
 
           {/* Emergency & CTA Buttons */}
           <div className="hidden xl:flex items-center space-x-4">
-            <a
-              href="tel:+224628187100"
-              className="hidden 2xl:flex items-center whitespace-nowrap text-xs text-accent font-semibold tracking-wider uppercase bg-secondary/80 px-3 py-2 border border-accent/20 rounded-[6px] hover:border-accent hover:text-white transition-all"
-            >
-              <PhoneCall className="w-3.5 h-3.5 mr-2 text-primary-light" />
-              +224 628 18 71 00
-            </a>
             <Link
               href="#quote"
               className="bg-primary hover:bg-primary-dark text-white font-oswald text-sm font-bold uppercase tracking-wider whitespace-nowrap px-5 py-2.5 rounded-[6px] border border-primary-dark shadow-[0_4px_10px_rgba(220,1,17,0.2)] transition-all transform hover:-translate-y-0.5"
@@ -162,16 +155,6 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              
-              <div className="pt-4 border-t border-white/10 flex flex-col space-y-3 px-4">
-                <a
-                  href="tel:+224628187100"
-                  className="flex items-center justify-center text-accent text-sm font-bold uppercase tracking-wider bg-dark-section py-3 border border-accent/25 rounded-[6px]"
-                >
-                  <PhoneCall className="w-4 h-4 mr-2 text-primary-light" />
-                  Tél : +224 628 18 71 00
-                </a>
-              </div>
             </div>
           </motion.div>
         )}

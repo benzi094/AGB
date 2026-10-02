@@ -89,7 +89,7 @@ export default function QuoteRequest() {
                     Merci !
                   </h3>
                   <p className="text-white/70 max-w-sm mx-auto text-sm">
-                    Merci pour votre intérêt. Pour un échange rapide, contactez-nous au +224 628 18 71 00.
+                    Merci pour votre intérêt. Pour un échange rapide, contactez-nous au +224 614 58 56 56.
                   </p>
                 </motion.div>
               ) : (

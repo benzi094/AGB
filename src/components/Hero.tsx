@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Hammer, Building, ArrowRight, ShieldCheck } from "lucide-react";
 import Link from "next/link";
@@ -34,8 +35,17 @@ export default function Hero() {
       {/* Background Image with Parallax */}
       <motion.div
         style={{ y: bgY }}
-        className="absolute inset-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"
+        className="absolute inset-0 w-full h-full"
       >
+        <Image
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={70}
+          className="object-cover object-center"
+        />
         {/* Premium multi-layered overlay for high contrast and modern styling */}
         <div className="absolute inset-0 bg-gradient-to-r from-dark-section via-dark-section/90 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-section via-transparent to-dark-section/40" />
@@ -60,14 +70,6 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* Tagline */}
-            <div className="inline-flex items-center space-x-2 bg-primary/20 border border-primary/45 px-3 py-1.5 rounded-[6px] mb-6">
-              <span className="w-2.5 h-2.5 bg-primary animate-pulse" />
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-primary-light">
-                Entreprise multisectorielle
-              </span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black font-oswald text-white uppercase leading-[1.05] tracking-tight mb-6">
               Un partenaire <br className="hidden sm:inline" />

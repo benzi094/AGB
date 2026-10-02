@@ -76,7 +76,7 @@ export default function Contact() {
                     Téléphone
                   </h3>
                   <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-inter">
-                    <a href="tel:+224628187100" className="text-primary font-semibold hover:underline">+224 628 18 71 00</a>
+                    <a href="tel:+224614585656" className="text-primary font-semibold hover:underline">+224 614 58 56 56</a>
                   </p>
                 </div>
               </div>
