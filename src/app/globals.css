@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette AGB (dérivée du logo officiel) */
+  --color-primary: #DC0111;
+  --color-primary-dark: #B3000E;
+  --color-primary-light: #FF4A55;
+  --color-secondary: #0A2A47;
+  --color-accent: #F3BD01;
+  --color-accent-dark: #B98B00;
+  --color-brand-green: #02713D;
+  --color-dark-section: #011C34;
+  --color-bg-light: #F6F8FB;
+  --color-text-main: #011C34;
+  --color-card-white: #FFFFFF;
+
+  /* Nuances neutres à dominante marine AGB (remplacent slate) */
+  --color-slate-50: #F4F7FA;
+  --color-slate-100: #EAF0F5;
+  --color-slate-200: #D5DFE8;
+  --color-slate-300: #B7C5D3;
+  --color-slate-400: #8296A9;
+  --color-slate-500: #5E7287;
+  --color-slate-600: #46586B;
+  --color-slate-700: #1D3B5A;
+  --color-slate-800: #0A2A47;
+  --color-slate-900: #011C34;
+
+  --font-oswald: var(--font-oswald), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+}
+
+:root {
+  --background: #F6F8FB;
+  --foreground: #011C34;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #011C34;
+}
+::-webkit-scrollbar-thumb {
+  background: #DC0111;
+  border: 2px solid #011C34;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B3000E;
+}
+
+body {
+  background-color: #F6F8FB;
+  color: #011C34;
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-oswald), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: #DC0111;
+  color: #FFFFFF;
+}
+
+/* Industrial Grid Background */
+.industrial-grid {
+  background-image: 
+    linear-gradient(rgba(10, 42, 71, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 42, 71, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.industrial-grid-dark {
+  background-image: 
+    linear-gradient(rgba(220, 1, 17, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 1, 17, 0.03) 1px, transparent 1px);
+  background-size: 45px 45px;
+}
+
+/* Diagonal Background Clip Paths */
+.diagonal-clip-left {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.diagonal-clip-right {
+  clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+}
+
+.diagonal-clip-both {
+  clip-path: polygon(0 6%, 100% 0, 100% 94%, 0 100%);
+}
+
+/* Geometric Borders */
+.geo-border-orange {
+  position: relative;
+}
+.geo-border-orange::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  border-bottom: 4px solid #DC0111;
+  border-right: 4px solid #DC0111;
+  pointer-events: none;
+}
+.geo-border-orange::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 20px;
+  height: 20px;
+  border-top: 4px solid #DC0111;
+  border-left: 4px solid #DC0111;
+  pointer-events: none;
+}
+
+/* Thick Underline for Headings */
+.thick-underline {
+  position: relative;
+  display: inline-block;
+}
+.thick-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 80px;
+  height: 6px;
+  background-color: #DC0111;
+}
+
+.thick-underline-accent {
+  position: relative;
+  display: inline-block;
+}
+.thick-underline-accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 80px;
+  height: 6px;
+  background-color: #F3BD01;
+}
+
+/* Structural diagonal lines background decoration */
+.construction-lines {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(220, 1, 17, 0.1),
+    rgba(220, 1, 17, 0.1) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.construction-lines-dark {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(243, 189, 1, 0.15),
+    rgba(243, 189, 1, 0.15) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
