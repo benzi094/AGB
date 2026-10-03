@@ -154,19 +154,6 @@ export default function ProjectModal({ project, onClose }: { project: Project; o
                   </p>
                 </div>
 
-                <dl className="mt-6 grid grid-cols-2 gap-4 text-sm font-inter">
-                  <div>
-                    <dt className="text-xs text-slate-400">Catégorie</dt>
-                    <dd className="mt-1 font-semibold text-secondary">{CATEGORY_LABELS[project.category]}</dd>
-                  </div>
-                  {project.status && (
-                    <div>
-                      <dt className="text-xs text-slate-400">Statut</dt>
-                      <dd className="mt-1 font-semibold text-secondary">{STATUS_LABELS[project.status]}</dd>
-                    </div>
-                  )}
-                </dl>
-
                 <Link
                   href="/#quote"
                   onClick={onClose}
@@ -179,13 +166,9 @@ export default function ProjectModal({ project, onClose }: { project: Project; o
 
             {/* Galeries chronologiques */}
             {hasStages && (
-              <div
-                className={`grid border-t border-slate-200 ${
-                  stages.length > 1 ? "lg:grid-cols-2 lg:divide-x lg:divide-slate-200" : ""
-                }`}
-              >
+              <div className="divide-y divide-slate-200 border-t border-slate-200">
                 {stages.map((stage) => (
-                  <section key={stage.title} className="min-w-0 p-4 sm:p-6 lg:p-8">
+                  <section key={stage.title} className="mx-auto min-w-0 max-w-3xl p-4 sm:p-6 lg:p-8">
                     <SectionTitle>{stage.title}</SectionTitle>
                     <ProjectGallery images={stage.images} onOpen={open(stage.images)} />
                   </section>
@@ -194,34 +177,24 @@ export default function ProjectModal({ project, onClose }: { project: Project; o
             )}
 
             {extraGallery && (
-              <section className="border-t border-slate-200 p-4 sm:p-6 lg:p-8">
+              <section className="mx-auto max-w-3xl border-t border-slate-200 p-4 sm:p-6 lg:p-8">
                 <SectionTitle>Galerie du projet</SectionTitle>
                 <ProjectGallery images={extraGallery} onOpen={open(extraGallery)} />
               </section>
             )}
 
-            {/* Vidéo et visite officielle */}
-            {(project.video || visit) && (
-              <div
-                className={`grid gap-6 border-t border-slate-200 p-4 sm:p-6 lg:gap-10 lg:p-8 ${
-                  project.video && visit ? "lg:grid-cols-[240px_minmax(0,1fr)]" : ""
-                }`}
-              >
-                {project.video && (
-                  <section className="min-w-0">
-                    <SectionTitle>Vidéo du chantier</SectionTitle>
-                    <ProjectVideo video={project.video} />
-                  </section>
-                )}
-                {visit && (
-                  <section className="min-w-0">
-                    <SectionTitle>{visit.title}</SectionTitle>
-                    <div className="max-w-2xl">
-                      <ProjectGallery images={visit.images} onOpen={open(visit.images)} />
-                    </div>
-                  </section>
-                )}
-              </div>
+            {/* Vidéo puis visite officielle */}
+            {project.video && (
+              <section className="border-t border-slate-200 p-4 sm:p-6 lg:p-8">
+                <SectionTitle>Vidéo du chantier</SectionTitle>
+                <ProjectVideo video={project.video} />
+              </section>
+            )}
+            {visit && (
+              <section className="mx-auto max-w-3xl border-t border-slate-200 p-4 sm:p-6 lg:p-8">
+                <SectionTitle>{visit.title}</SectionTitle>
+                <ProjectGallery images={visit.images} onOpen={open(visit.images)} />
+              </section>
             )}
           </div>
         </motion.div>
