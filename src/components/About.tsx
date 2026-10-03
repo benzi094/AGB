@@ -7,7 +7,6 @@ import AnimatedCounter from "./AnimatedCounter";
 
 const MILESTONES = [
   { year: "BTP & Construction", title: "Collège Damakania", desc: "Projet de réhabilitation du Collège Damakania réalisé par AGB." },
-  { year: "BTP & Construction", title: "Nongo", desc: "Projet de construction et travaux réalisé dans la zone de Nongo." },
   { year: "BTP & Construction", title: "Collège et Lycée Général Lansana Conté", desc: "Projet de réhabilitation du Collège et Lycée Général Lansana Conté de Kindia réalisé par AGB." },
 ];
 

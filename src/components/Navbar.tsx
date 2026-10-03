@@ -4,24 +4,29 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ScrollProgressBar from "./ScrollProgressBar";
 import Logo from "./Logo";
 
 const NAV_ITEMS = [
-  { label: "Accueil", href: "#home" },
-  { label: "À propos", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Réalisations", href: "#projects" },
-  { label: "Démarche", href: "#process" },
-  { label: "Valeurs", href: "#team" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Accueil", href: "/#home" },
+  { label: "À propos", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Réalisations", href: "/realisations" },
+  { label: "Démarche", href: "/#process" },
+  { label: "Valeurs", href: "/#team" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+  const isItemActive = (href: string) =>
+    href.startsWith("/#") ? onHome && activeSection === href.substring(2) : pathname === href;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +37,7 @@ export default function Navbar() {
       }
 
       // Determine active section based on scroll position
-      const sections = NAV_ITEMS.map((item) => item.href.substring(1));
+      const sections = NAV_ITEMS.filter((item) => item.href.startsWith("/#")).map((item) => item.href.substring(2));
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -66,7 +71,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           
           {/* Logo */}
-          <Link href="#home" aria-label="African Global Business - Accueil" className="flex items-center group">
+          <Link href="/" aria-label="African Global Business - Accueil" className="flex items-center group">
             <div className="bg-white px-2 py-1 rounded-[6px] border border-accent group-hover:border-primary transition-colors">
               <Logo className="h-10 w-[96px] md:h-12 md:w-[116px]" />
             </div>
@@ -75,7 +80,7 @@ export default function Navbar() {
           {/* Desktop Nav Links */}
           <nav className="hidden xl:flex items-center space-x-6">
             {NAV_ITEMS.map((item) => {
-              const isActive = activeSection === item.href.substring(1);
+              const isActive = isItemActive(item.href);
               return (
                 <Link
                   key={item.label}
@@ -100,7 +105,7 @@ export default function Navbar() {
           {/* Emergency & CTA Buttons */}
           <div className="hidden xl:flex items-center space-x-4">
             <Link
-              href="#quote"
+              href="/#quote"
               className="bg-primary hover:bg-primary-dark text-white font-oswald text-sm font-bold uppercase tracking-wider whitespace-nowrap px-5 py-2.5 rounded-[6px] border border-primary-dark shadow-[0_4px_10px_rgba(220,1,17,0.2)] transition-all transform hover:-translate-y-0.5"
             >
               Parler de votre projet
@@ -110,7 +115,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="flex xl:hidden items-center space-x-3">
             <Link
-              href="#quote"
+              href="/#quote"
               className="bg-primary hover:bg-primary-dark text-white font-oswald text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-[6px] border border-primary-dark transition-all"
             >
               Projet
@@ -139,7 +144,7 @@ export default function Navbar() {
           >
             <div className="px-4 py-6 space-y-3 max-h-[80vh] overflow-y-auto">
               {NAV_ITEMS.map((item) => {
-                const isActive = activeSection === item.href.substring(1);
+                const isActive = isItemActive(item.href);
                 return (
                   <Link
                     key={item.label}

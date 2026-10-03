@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Hammer, Building, ArrowRight, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import AnimatedCounter from "./AnimatedCounter";
+import { PROJECTS } from "@/data/projects";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ export default function Hero() {
 
   const stats = [
     { value: 6, suffix: "", label: "Secteurs d'activité", icon: <Building className="w-5 h-5 text-primary-light" /> },
-    { value: 3, suffix: "", label: "Réalisations présentées", icon: <Hammer className="w-5 h-5 text-accent" /> },
+    { value: PROJECTS.length, suffix: "", label: "Réalisations présentées", icon: <Hammer className="w-5 h-5 text-accent" /> },
     { value: 3, suffix: "", label: "Valeurs", icon: <ShieldCheck className="w-5 h-5 text-primary-light" /> },
   ];
 
@@ -95,7 +96,7 @@ export default function Hero() {
               </Link>
               
               <Link
-                href="#projects"
+                href="/realisations"
                 className="bg-transparent hover:bg-white/5 text-white border-2 border-white/20 hover:border-white/50 font-oswald font-bold uppercase tracking-wider px-8 py-4 rounded-[6px] transition-all flex items-center justify-center cursor-pointer"
               >
                 Voir les réalisations

@@ -3,6 +3,7 @@
 import { PhoneCall, MapPin, Layers, ShieldCheck, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Logo from "./Logo";
+import { FEATURED_PROJECTS } from "@/data/projects";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -45,7 +46,7 @@ export default function Footer() {
               ].map((service, i) => (
                 <li key={i}>
                   <Link 
-                    href="#services" 
+                    href="/#services" 
                     className="text-white/70 hover:text-primary-light transition-colors text-sm flex items-center group font-inter"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 text-accent transform group-hover:translate-x-1 transition-transform" />
@@ -62,18 +63,14 @@ export default function Footer() {
               Réalisations
             </h3>
             <ul className="space-y-3">
-              {[
-                "Collège Damakania",
-                "Nongo",
-                "Collège et Lycée Lansana Conté",
-              ].map((project, i) => (
-                <li key={i}>
+              {FEATURED_PROJECTS.map((project) => (
+                <li key={project.slug}>
                   <Link 
-                    href="#projects" 
+                    href="/realisations" 
                     className="text-white/70 hover:text-primary-light transition-colors text-sm flex items-center group font-inter"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 text-accent transform group-hover:translate-x-1 transition-transform" />
-                    {project}
+                    {project.title}
                   </Link>
                 </li>
               ))}

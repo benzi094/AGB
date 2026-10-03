@@ -24,7 +24,7 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "Quelles réalisations AGB présente-t-elle ?",
-    answer: "Dans le secteur BTP & Construction, AGB présente le projet de réhabilitation du Collège Damakania, un projet de construction et travaux dans la zone de Nongo, ainsi que la réhabilitation du Collège et Lycée Général Lansana Conté de Kindia.",
+    answer: "Dans le secteur BTP & Construction, AGB présente notamment le Collège Damakania et la réhabilitation du Collège et Lycée Général Lansana Conté de Kindia. Retrouvez toutes nos réalisations dans la page dédiée.",
   },
   {
     question: "Comment parler de mon projet avec AGB ?",
