@@ -73,6 +73,9 @@ export default function Hero() {
           >
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black font-oswald text-white uppercase leading-[1.05] tracking-tight mb-6">
+              <span className="block text-accent text-sm sm:text-base md:text-xl tracking-[0.25em] mb-4">
+                African Global Business
+              </span>
               Un partenaire <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                 multisectoriel
@@ -82,7 +85,7 @@ export default function Hero() {
 
             {/* Paragraph */}
             <p className="text-white/70 max-w-xl text-base md:text-lg mb-10 font-inter leading-relaxed">
-              African Global Business (AGB) intervient dans le BTP, les infrastructures, la logistique, l&apos;import-export, l&apos;imprimerie et les fournitures.
+              African Global Business (AGB) intervient dans le BTP, les infrastructures, la logistique, l&apos;import-export, l&apos;imprimerie et les fournitures, depuis Conakry, en Guinée.
             </p>
 
             {/* Call to Actions */}

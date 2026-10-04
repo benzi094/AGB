@@ -1,19 +1,10 @@
 import { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://agb.example.com";
+  const lastModified = new Date();
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/realisations`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    { url: `${SITE_URL}/`, lastModified, changeFrequency: "monthly", priority: 1 },
+    { url: `${SITE_URL}/realisations`, lastModified, changeFrequency: "monthly", priority: 0.8 },
   ];
 }

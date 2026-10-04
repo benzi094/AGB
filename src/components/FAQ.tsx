@@ -20,7 +20,7 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "Où se situe AGB ?",
-    answer: "AGB est basée à Hamdallaye Concasseur, Ratoma, Conakry, en Guinée.",
+    answer: "AGB est basée à Concasseur, Commune de Dixinn, Conakry, en Guinée.",
   },
   {
     question: "Quelles réalisations AGB présente-t-elle ?",

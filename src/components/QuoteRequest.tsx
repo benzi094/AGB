@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { buildWhatsAppMessage, buildWhatsAppUrl } from "@/utils/whatsapp";
 import { Send, FileText, Shield, User, Mail, Phone, Layers, Clock } from "lucide-react";
 
 export default function QuoteRequest() {
@@ -13,22 +14,25 @@ export default function QuoteRequest() {
     timeline: "À définir",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        projectType: "btp",
-        timeline: "À définir",
-        message: "",
-      });
-    }, 4000);
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    const subject =
+      e.currentTarget.querySelector<HTMLSelectElement>("select")?.selectedOptions[0]?.text ??
+      formData.projectType;
+    const text = buildWhatsAppMessage({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      subject,
+      message: formData.message,
+      timeline: formData.timeline,
+    });
+    window.location.href = buildWhatsAppUrl(text);
   };
 
   return (
@@ -65,7 +69,7 @@ export default function QuoteRequest() {
               </div>
               <div className="flex items-center space-x-3 text-xs text-white/70 font-inter">
                 <Shield className="w-5 h-5 text-accent shrink-0" />
-                <span>Basée à Hamdallaye Concasseur, Ratoma, Conakry</span>
+                <span>Basée à Concasseur, Commune de Dixinn, Conakry</span>
               </div>
             </div>
           </div>
@@ -76,23 +80,6 @@ export default function QuoteRequest() {
               layout
               className="bg-secondary/40 border-4 border-slate-700 p-8 rounded-[6px] relative geo-border-orange"
             >
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="py-16 text-center space-y-4 font-inter"
-                >
-                  <div className="bg-primary/20 border-2 border-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Send className="w-8 h-8 text-primary-light" />
-                  </div>
-                  <h3 className="font-oswald text-2xl font-extrabold text-white uppercase">
-                    Merci !
-                  </h3>
-                  <p className="text-white/70 max-w-sm mx-auto text-sm">
-                    Merci pour votre intérêt. Pour un échange rapide, contactez-nous au +224 614 58 56 56.
-                  </p>
-                </motion.div>
-              ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   
                   {/* Grid Input */}
@@ -207,12 +194,14 @@ export default function QuoteRequest() {
                     type="submit"
                     className="w-full bg-primary hover:bg-primary-dark text-white font-oswald text-sm font-bold uppercase tracking-wider py-4 rounded-[6px] border border-primary-dark transition-all transform hover:-translate-y-0.5 flex items-center justify-center cursor-pointer shadow-[0_4px_12px_rgba(220,1,17,0.25)]"
                   >
-                    Envoyer ma demande
+                    Envoyer sur WhatsApp
                     <Send className="w-4 h-4 ml-2" />
                   </button>
+                  <p className="text-center text-xs text-white/50 font-inter">
+                    Vous serez redirigé vers WhatsApp pour envoyer votre demande.
+                  </p>
 
                 </form>
-              )}
             </motion.div>
           </div>
 

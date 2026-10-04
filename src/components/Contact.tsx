@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, PhoneCall, Layers, Briefcase, ArrowRight } from "lucide-react";
+import { MapPin, PhoneCall, Mail, Layers, Briefcase, ArrowRight } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -37,7 +37,10 @@ export default function Contact() {
                     Siège
                   </h3>
                   <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-inter">
-                    Hamdallaye Concasseur, Ratoma, Conakry, Guinée
+                    Concasseur, Commune de Dixinn, Conakry, Guinée
+                  </p>
+                  <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-inter mt-1">
+                    Lundi – vendredi : 8h30 – 16h30
                   </p>
                   <a
                     href="https://maps.app.goo.gl/7o3p2nPGrarHjega7"
@@ -77,6 +80,21 @@ export default function Contact() {
                   </h3>
                   <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-inter">
                     <a href="tel:+224614585656" className="text-primary font-semibold hover:underline">+224 614 58 56 56</a>
+                  </p>
+                </div>
+              </div>
+
+              {/* Email Card */}
+              <div className="bg-bg-light border-2 border-slate-200 p-6 rounded-[6px] hover:border-primary transition-all duration-300 flex items-start space-x-4 shadow-sm">
+                <div className="bg-primary/10 p-3 rounded-[6px] border border-primary/25 shrink-0 text-primary">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-oswald text-base font-bold text-secondary uppercase tracking-wider mb-1">
+                    E-mail
+                  </h3>
+                  <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-inter break-all">
+                    <a href="mailto:contact@africanglobalbusiness.com" className="text-primary font-semibold hover:underline">contact@africanglobalbusiness.com</a>
                   </p>
                 </div>
               </div>
@@ -126,7 +144,7 @@ export default function Contact() {
               className="relative z-10 self-start bg-secondary/95 border border-white/10 p-3 rounded-[6px] text-xs text-white max-w-[220px] font-inter hover:border-primary transition-colors"
             >
               <h4 className="font-bold text-accent mb-0.5">Siège AGB</h4>
-              <p className="text-[10px] text-white/60">Hamdallaye Concasseur, Ratoma, Conakry</p>
+              <p className="text-[10px] text-white/60">Concasseur, Commune de Dixinn, Conakry</p>
               <span className="text-[10px] text-primary-light font-bold uppercase tracking-wider">Ouvrir dans Google Maps</span>
             </a>
 

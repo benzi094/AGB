@@ -1,6 +1,6 @@
 "use client";
 
-import { PhoneCall, MapPin, Layers, ShieldCheck, ArrowRight } from "lucide-react";
+import { PhoneCall, Mail, MapPin, Layers, ShieldCheck, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Logo from "./Logo";
 import { FEATURED_PROJECTS } from "@/data/projects";
@@ -97,6 +97,17 @@ export default function Footer() {
                 </a>
               </div>
             </div>
+            <div className="bg-secondary p-4 border border-accent/20 rounded-[6px] flex items-start space-x-3 mt-3">
+              <Mail className="w-5 h-5 text-primary-light mt-1 shrink-0" />
+              <div className="min-w-0">
+                <h4 className="text-xs text-accent font-bold uppercase tracking-wider font-oswald">
+                  E-mail
+                </h4>
+                <a href="mailto:contact@africanglobalbusiness.com" className="font-bold block hover:text-primary-light transition-colors font-inter mt-0.5 text-xs sm:text-[13px] [overflow-wrap:anywhere]">
+                  contact<wbr />@africanglobalbusiness.com
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -111,7 +122,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-white/75 font-inter hover:text-white transition-colors"
             >
-              Hamdallaye Concasseur, Ratoma, Conakry, Guinée
+              Concasseur, Commune de Dixinn, Conakry, Guinée
             </a>
           </div>
           <div className="flex items-center space-x-3">

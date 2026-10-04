@@ -38,7 +38,7 @@ const TEAM_MEMBERS: Member[] = [
   {
     name: "Conakry",
     role: "Positionnement",
-    desc: "Siège à Hamdallaye Concasseur, Ratoma, Conakry, Guinée.",
+    desc: "Siège à Concasseur, Commune de Dixinn, Conakry, Guinée.",
     icon: <MapPin className="w-20 h-20" />,
   },
 ];
