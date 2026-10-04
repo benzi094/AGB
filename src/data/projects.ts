@@ -40,7 +40,7 @@ export const STATUS_LABELS: Record<ProjectStatus, string> = {
 };
 
 export const DEFAULT_DESCRIPTION =
-  "Découvrez en images cette réalisation d'African Global Business.";
+  "Chantier réalisé par African Global Business, avec un suivi rigoureux des travaux de la préparation jusqu'à la livraison.";
 
 const photo = (folder: string, id: string, alt: string): ProjectImage => ({
   src: encodeURI(`/${folder}/WhatsApp Image 2026-10-03 at ${id}.jpeg`),
@@ -62,7 +62,7 @@ const LANSANAYA = "Chantier Lansanaya";
 const MATAM = "Chantier Matam";
 const BARRY = "Barry Diawadou";
 const CAHIERS = "Livraison des cahiers pour les examens nationaux";
-const VISITE = "Visite du ministre Paul Cedy sur le chantier Barry Diawadou de Matam"; // nom du dossier uniquement, jamais affiché
+const VISITE = "Visite du ministre Paul Cedy sur le chantier Barry Diawadou de Matam"; // nom du dossier source
 
 export const PROJECTS: Project[] = [
   {
@@ -70,6 +70,8 @@ export const PROJECTS: Project[] = [
     title: "Collège Damakania",
     category: "btp",
     status: "completed",
+    description:
+      "Réalisation d'un bâtiment scolaire par African Global Business, suivie de l'état du chantier jusqu'à la livraison du projet terminé.",
     cover: root("Damakania.jpg", "Collège Damakania"),
     gallery: [],
     workInProgress: photos(
@@ -89,7 +91,7 @@ export const PROJECTS: Project[] = [
     title: "Lycée et Collège Général Lansana Conté",
     category: "btp",
     status: "completed",
-    description: "Établissement de Kindia, réhabilité.",
+    description: "Réhabilitation de l'établissement de Kindia : des travaux de remise en état pour offrir aux élèves un cadre d'étude adapté.",
     cover: photo(LANSANA, "13.00.44 (1)", "Lycée et Collège Général Lansana Conté"),
     gallery: photos(
       LANSANA,
@@ -103,6 +105,8 @@ export const PROJECTS: Project[] = [
     title: "Chantier Lambandji",
     category: "btp",
     status: "completed",
+    description:
+      "Chantier de construction mené par African Global Business, de la structure aux finitions, aujourd'hui achevé.",
     cover: photo(LAMBANDJI, "13.06.55 (1)", "Chantier Lambandji"),
     gallery: photos(
       LAMBANDJI,
@@ -115,6 +119,8 @@ export const PROJECTS: Project[] = [
     slug: "livraison-cahiers-examens-nationaux",
     title: "Livraison de cahiers pour les examens nationaux",
     category: "fournitures",
+    description:
+      "Fourniture et livraison de cahiers destinés aux examens nationaux, assurées par African Global Business.",
     cover: photo(CAHIERS, "13.03.31", "Livraison de cahiers pour les examens nationaux"),
     gallery: photos(
       CAHIERS,
@@ -126,6 +132,9 @@ export const PROJECTS: Project[] = [
     slug: "chantier-lansanaya",
     title: "Chantier Lansanaya",
     category: "btp",
+    status: "ongoing",
+    description:
+      "Chantier de construction suivi par African Global Business : gros œuvre, maçonnerie et aménagements intérieurs.",
     cover: photo(LANSANAYA, "13.10.05 (4)", "Chantier Lansanaya"),
     gallery: photos(
       LANSANAYA,
@@ -137,7 +146,8 @@ export const PROJECTS: Project[] = [
     slug: "chantier-matam",
     title: "Chantier Matam",
     category: "btp",
-    description: "Installation des fenêtres.",
+    status: "ongoing",
+    description: "Chantier de construction mené par African Global Business, avec un suivi rigoureux des travaux de construction et de finition.",
     cover: photo(MATAM, "13.12.56 (1)", "Chantier Matam"),
     gallery: photos(
       MATAM,
@@ -149,19 +159,18 @@ export const PROJECTS: Project[] = [
     slug: "barry-diawadou",
     title: "Barry Diawadou",
     category: "btp",
+    status: "ongoing",
+    description:
+      "Chantier de construction en cours à Matam, mené par African Global Business. Il a reçu la visite officielle du ministre Paul Cedy.",
     cover: photo(BARRY, "13.04.57", "Barry Diawadou"),
     gallery: photos(
       BARRY,
       ["13.04.57", "13.04.58 (1)", "13.04.58 (2)", "13.04.58 (4)", "13.04.59", "13.04.59 (1)"],
       "Barry Diawadou"
-    ).concat(root("Nongo.jpg", "Barry Diawadou – photo 7")),
-    video: {
-      src: encodeURI("/Barry Diawadou/WhatsApp Video 2026-10-03 at 13.05.00.mp4"),
-      poster: { src: "/video-posters/barry-diawadou.jpg", alt: "Barry Diawadou – vidéo du chantier" },
-    },
+    ),
     officialVisit: {
-      title: "Visite officielle sur le chantier",
-      images: photos(VISITE, ["13.02.47", "13.02.47 (3)", "13.02.48", "13.02.49 (1)"], "Visite officielle sur le chantier Barry Diawadou"),
+      title: "Visite officielle du ministre Paul Cedy sur le chantier Barry Diawadou de Matam",
+      images: photos(VISITE, ["13.02.47", "13.02.47 (3)", "13.02.48", "13.02.49 (1)"], "Visite officielle du ministre Paul Cedy sur le chantier Barry Diawadou de Matam"),
     },
     featured: true,
   },

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import type { ProjectImage } from "@/data/projects";
+import useModalFocus from "./useModalFocus";
 
 interface LightboxProps {
   images: ProjectImage[];
@@ -20,6 +21,8 @@ const BUTTON =
 export default function Lightbox({ images, index, onIndexChange, onClose }: LightboxProps) {
   const touchStartX = useRef<number | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  useModalFocus(rootRef);
   const count = images.length;
 
   const go = useCallback(
@@ -60,10 +63,12 @@ export default function Lightbox({ images, index, onIndexChange, onClose }: Ligh
 
   return (
     <motion.div
+      ref={rootRef}
+      tabIndex={-1}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[60] bg-dark-section/[0.98] flex flex-col"
+      className="fixed inset-0 z-[60] bg-dark-section/[0.98] flex flex-col outline-none"
       role="dialog"
       aria-modal="true"
       aria-label="Galerie photos"
@@ -89,12 +94,12 @@ export default function Lightbox({ images, index, onIndexChange, onClose }: Ligh
             stop(e);
             onClose();
           }}
-          className={`${BUTTON} w-11 h-11 flex items-center justify-center`}
+          className="w-12 h-12 flex items-center justify-center rounded-full bg-white text-secondary shadow-lg hover:bg-slate-200 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
           aria-label="Fermer"
           title="Fermer"
-          autoFocus
+          data-autofocus
         >
-          <X className="w-5 h-5" />
+          <X className="w-6 h-6" />
         </button>
       </div>
 

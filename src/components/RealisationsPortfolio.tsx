@@ -17,30 +17,41 @@ export default function RealisationsPortfolio() {
 
   const filtered = PROJECTS.filter((p) => activeFilter === "all" || p.category === activeFilter);
   const filters = [
-    { key: "all" as const, label: "Tous" },
-    ...CATEGORIES.map((c) => ({ key: c, label: CATEGORY_LABELS[c] })),
+    { key: "all" as const, label: "Tous", count: PROJECTS.length },
+    ...CATEGORIES.map((c) => ({
+      key: c,
+      label: CATEGORY_LABELS[c],
+      count: PROJECTS.filter((p) => p.category === c).length,
+    })),
   ];
 
   return (
     <section className="py-16 bg-bg-light relative overflow-hidden industrial-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-wrap gap-2 border-b-2 border-slate-200 pb-2 mb-10">
-          {filters.map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveFilter(tab.key)}
-              className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-[4px] cursor-pointer ${
-                activeFilter === tab.key
-                  ? "bg-primary text-white border-b-2 border-primary-dark shadow-[0_3px_8px_rgba(220,1,17,0.25)]"
-                  : "text-slate-500 hover:text-primary hover:bg-slate-100"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+        <div
+          role="group"
+          aria-label="Filtrer les réalisations"
+          className="mb-10 flex flex-nowrap gap-1 overflow-x-auto border-b border-slate-200 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {filters.map((tab) => {
+            const active = activeFilter === tab.key;
+            return (
+              <button
+                key={tab.key}
+                type="button"
+                aria-pressed={active}
+                onClick={() => setActiveFilter(tab.key)}
+                className={`-mb-px min-h-11 shrink-0 whitespace-nowrap border-b-2 px-4 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary ${
+                  active ? "border-primary text-secondary" : "border-transparent text-slate-500 hover:text-secondary"
+                }`}
+              >
+                {tab.label} <span className={active ? "text-secondary/70" : "text-slate-400"}>({tab.count})</span>
+              </button>
+            );
+          })}
         </div>
 
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filtered.map((project) => (
               <ProjectCard key={project.slug} project={project} onOpen={() => setSelectedProject(project)} />
