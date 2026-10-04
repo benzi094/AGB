@@ -28,6 +28,29 @@ export default function Footer() {
             <p className="text-white/60 text-sm leading-relaxed font-inter">
               African Global Business (AGB) est une entreprise multisectorielle intervenant notamment dans le BTP, les infrastructures, la logistique, l&apos;import-export, l&apos;imprimerie et les fournitures. Basée à Conakry, Guinée.
             </p>
+            {/* Réseaux sociaux : remplacer href="#" par les liens officiels */}
+            <div className="flex items-center space-x-3 mt-5">
+              <a
+                href="#"
+                aria-label="Facebook African Global Business"
+                className="w-10 h-10 flex items-center justify-center bg-secondary border border-white/15 rounded-[6px] text-white/80 hover:bg-primary hover:border-primary hover:text-white transition-colors"
+              >
+                <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
+                  <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                aria-label="Instagram African Global Business"
+                className="w-10 h-10 flex items-center justify-center bg-secondary border border-white/15 rounded-[6px] text-white/80 hover:bg-primary hover:border-primary hover:text-white transition-colors"
+              >
+                <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
+                </svg>
+              </a>
+            </div>
           </div>
 
           {/* Column 2: Quick Links / Services */}
