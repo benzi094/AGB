@@ -202,7 +202,7 @@ export default function About() {
           {/* Photo (cadrée sur le portrait, sans le texte intégré) */}
           <div className="lg:col-span-5 relative aspect-[1350/830] lg:aspect-auto lg:min-h-[380px] bg-slate-800 overflow-hidden">
             <Image
-              src="/direction-portrait.jpg"
+              src="/direction-portrait.webp"
               alt="Mamadou Camara, Directeur Général d'AGB"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"

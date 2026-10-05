@@ -43,7 +43,7 @@ export const DEFAULT_DESCRIPTION =
   "Chantier réalisé par African Global Business, avec un suivi rigoureux des travaux de la préparation jusqu'à la livraison.";
 
 const photo = (folder: string, id: string, alt: string): ProjectImage => ({
-  src: encodeURI(`/${folder}/WhatsApp Image 2026-10-03 at ${id}.jpeg`),
+  src: encodeURI(`/${folder}/WhatsApp Image 2026-10-03 at ${id}.webp`),
   alt,
 });
 
@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
     status: "completed",
     description:
       "Réalisation d'un bâtiment scolaire par African Global Business, suivie de l'état du chantier jusqu'à la livraison du projet terminé.",
-    cover: root("Damakania.jpg", "Collège Damakania"),
+    cover: root("Damakania.webp", "Collège Damakania"),
     gallery: [],
     workInProgress: photos(
       "Collège Damakania en cours",
