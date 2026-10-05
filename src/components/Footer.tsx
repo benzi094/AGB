@@ -28,10 +28,11 @@ export default function Footer() {
             <p className="text-white/60 text-sm leading-relaxed font-inter">
               African Global Business (AGB) est une entreprise multisectorielle intervenant notamment dans le BTP, les infrastructures, la logistique, l&apos;import-export, l&apos;imprimerie et les fournitures. Basée à Conakry, Guinée.
             </p>
-            {/* Réseaux sociaux : remplacer href="#" par les liens officiels */}
             <div className="flex items-center space-x-3 mt-5">
               <a
-                href="#"
+                href="https://www.facebook.com/100088306002266/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook African Global Business"
                 className="w-10 h-10 flex items-center justify-center bg-secondary border border-white/15 rounded-[6px] text-white/80 hover:bg-primary hover:border-primary hover:text-white transition-colors"
               >
@@ -40,7 +41,9 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/africanglobalbusiness"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram African Global Business"
                 className="w-10 h-10 flex items-center justify-center bg-secondary border border-white/15 rounded-[6px] text-white/80 hover:bg-primary hover:border-primary hover:text-white transition-colors"
               >
