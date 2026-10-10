@@ -1,4 +1,4 @@
-export const AGB_WHATSAPP_NUMBER = "224628187100";
+export const AGB_WHATSAPP_NUMBER = "224614585656";
 
 export interface WhatsAppContact {
   name: string;

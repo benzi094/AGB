@@ -28,7 +28,7 @@ export default function RealisationsPage() {
       <main className="flex-grow">
         <section className="bg-dark-section pt-28 pb-6 border-b-4 border-primary">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span className="text-accent font-bold text-xs tracking-[0.25em] uppercase block mb-2">
+            <span className="text-accent font-bold text-xs tracking-[0.12em] sm:tracking-[0.25em] uppercase block mb-2">
               African Global Business · Portfolio
             </span>
             <h1 className="text-3xl md:text-5xl font-black font-oswald text-white uppercase thick-underline">

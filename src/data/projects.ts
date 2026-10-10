@@ -25,8 +25,6 @@ export interface Project {
   completed?: ProjectImage[];
   video?: { src: string; poster: ProjectImage };
   officialVisit?: { title: string; images: ProjectImage[] };
-  /** Mis en avant sur la page d'accueil. */
-  featured?: boolean;
 }
 
 export const CATEGORY_LABELS: Record<ProjectCategory, string> = {
@@ -50,6 +48,13 @@ const photo = (folder: string, id: string, alt: string): ProjectImage => ({
 const photos = (folder: string, ids: string[], title: string): ProjectImage[] =>
   ids.map((id, i) => photo(folder, id, `${title} – photo ${i + 1}`));
 
+/** `names` : texte situé après « WhatsApp Image » dans le nom du fichier (sans extension). */
+const shots = (folder: string, names: string[], title: string): ProjectImage[] =>
+  names.map((name, i) => ({
+    src: encodeURI(`/${folder}/WhatsApp Image ${name}.webp`),
+    alt: `${title} – photo ${i + 1}`,
+  }));
+
 const root = (file: string, alt: string): ProjectImage => ({
   src: encodeURI(`/${file}`),
   alt,
@@ -58,33 +63,30 @@ const root = (file: string, alt: string): ProjectImage => ({
 const DAMAKANIA = "Collège Damakania";
 const LANSANA = "Lycée et collège Général Lansana conté finis";
 const LAMBANDJI = "Chantier de Lambandji fini";
+const MANEYA = "Collège Maneya en cours";
+const NONGO = "Chantier Nongo";
+const TAOUYAH = "Chantier Taouyah";
+const YIMBAYA = "Chantier Yimbaya Soloprimo";
 const LANSANAYA = "Chantier Lansanaya";
 const MATAM = "Chantier Matam";
 const BARRY = "Barry Diawadou";
 const CAHIERS = "Livraison des cahiers pour les examens nationaux";
 const VISITE = "Visite du ministre Paul Cedy sur le chantier Barry Diawadou de Matam"; // nom du dossier source
 
-export const PROJECTS: Project[] = [
+const ALL_PROJECTS: Project[] = [
   {
     slug: "college-damakania",
     title: "Collège Damakania",
     category: "btp",
     status: "completed",
     description:
-      "Réalisation d'un bâtiment scolaire par African Global Business, suivie de l'état du chantier jusqu'à la livraison du projet terminé.",
+      "Construction d'un collège par African Global Business : bâtiments de classes et équipements annexes livrés et achevés.",
     cover: root("Damakania.webp", "Collège Damakania"),
-    gallery: [],
-    workInProgress: photos(
-      "Collège Damakania en cours",
-      ["13.01.39 (3)", "13.01.39 (2)", "13.01.37", "13.01.37 (2)", "13.01.39 (1)", "13.01.39 (7)", "13.01.40", "13.01.40 (2)", "13.01.40 (3)"],
-      `${DAMAKANIA} (pendant les travaux)`
+    gallery: photos(
+      DAMAKANIA,
+      ["13.03.57 (1)", "13.03.57 (4)", "13.03.58 (2)", "13.03.58 (3)", "13.03.59 (3)", "13.03.57", "13.03.58 (6)", "13.03.59 (1)"],
+      DAMAKANIA
     ),
-    completed: photos(
-      "Collège Damakania finis",
-      ["13.03.58 (5)", "13.03.57", "13.03.57 (1)", "13.03.57 (3)", "13.03.58", "13.03.58 (1)", "13.03.58 (3)", "13.03.59"],
-      `${DAMAKANIA} (projet terminé)`
-    ),
-    featured: true,
   },
   {
     slug: "lycee-college-general-lansana-conte",
@@ -98,7 +100,6 @@ export const PROJECTS: Project[] = [
       ["13.00.44 (1)", "13.00.41", "13.00.42 (1)", "13.00.41 (1)", "13.00.42 (5)", "13.00.42 (6)", "13.00.43 (1)", "13.00.43 (3)", "13.00.43 (6)", "13.00.44 (2)", "13.00.44 (3)", "13.00.44 (6)"],
       "Lycée et Collège Général Lansana Conté"
     ),
-    featured: true,
   },
   {
     slug: "chantier-lambandji",
@@ -108,12 +109,13 @@ export const PROJECTS: Project[] = [
     description:
       "Chantier de construction mené par African Global Business, de la structure aux finitions, aujourd'hui achevé.",
     cover: photo(LAMBANDJI, "13.06.55 (1)", "Chantier Lambandji"),
-    gallery: photos(
+    gallery: [],
+    workInProgress: shots(LAMBANDJI, ["2026-10-03 at 13.07.12", "2026-10-03 at"], "Chantier Lambandji (pendant les travaux)"),
+    completed: photos(
       LAMBANDJI,
-      ["13.06.55 (1)", "13.06.57", "13.06.57 (1)", "13.06.56 (1)", "13.06.56 (3)", "13.06.56"],
-      "Chantier Lambandji"
+      ["13.06.55 (1)", "13.06.57 (1)", "13.06.56 (1)", "13.06.56 (3)", "13.06.56", "13.06.57"],
+      "Chantier Lambandji (projet terminé)"
     ),
-    featured: true,
   },
   {
     slug: "livraison-cahiers-examens-nationaux",
@@ -135,12 +137,11 @@ export const PROJECTS: Project[] = [
     status: "ongoing",
     description:
       "Chantier de construction suivi par African Global Business : gros œuvre, maçonnerie et aménagements intérieurs.",
-    cover: photo(LANSANAYA, "13.10.05 (4)", "Chantier Lansanaya"),
-    gallery: photos(
-      LANSANAYA,
-      ["13.10.05 (4)", "13.09.51", "13.10.03", "13.10.03 (1)", "13.10.03 (2)", "13.10.04 (2)", "13.10.04 (3)", "13.10.04 (6)", "13.10.05 (1)", "13.10.05 (2)"],
-      "Chantier Lansanaya"
-    ),
+    cover: shots(LANSANAYA, ["2026-10-07 at 12.56.08 (1)"], "Chantier Lansanaya")[0],
+    gallery: [
+      ...shots(LANSANAYA, ["2026-10-07 at 12.56.08 (1)", "2026-10-07 at 12.56.08 (3)"], "Chantier Lansanaya"),
+      ...photos(LANSANAYA, ["13.10.05 (4)", "13.09.51", "13.10.05 (3)", "13.10.03 (1)", "13.10.03", "13.10.05 (1)"], "Chantier Lansanaya"),
+    ],
   },
   {
     slug: "chantier-matam",
@@ -148,10 +149,10 @@ export const PROJECTS: Project[] = [
     category: "btp",
     status: "ongoing",
     description: "Chantier de construction mené par African Global Business, avec un suivi rigoureux des travaux de construction et de finition.",
-    cover: photo(MATAM, "13.12.56 (1)", "Chantier Matam"),
+    cover: photo(MATAM, "13.12.56 (2)", "Chantier Matam"),
     gallery: photos(
       MATAM,
-      ["13.12.56 (1)", "13.12.56 (2)", "13.12.57", "13.12.57 (1)", "13.12.57 (3)", "13.12.57 (5)"],
+      ["13.12.56 (2)", "13.12.56 (1)", "13.12.57", "13.12.57 (1)", "13.12.57 (3)", "13.12.57 (5)"],
       "Chantier Matam"
     ),
   },
@@ -162,21 +163,97 @@ export const PROJECTS: Project[] = [
     status: "ongoing",
     description:
       "Chantier de construction en cours à Matam, mené par African Global Business. Il a reçu la visite officielle du ministre Paul Cedy.",
-    cover: photo(BARRY, "13.04.57", "Barry Diawadou"),
-    gallery: photos(
-      BARRY,
-      ["13.04.57", "13.04.58 (1)", "13.04.58 (2)", "13.04.58 (4)", "13.04.59", "13.04.59 (1)"],
-      "Barry Diawadou"
-    ),
+    cover: shots(BARRY, ["2026-10-07 at 12.33.14 (4)"], "Barry Diawadou")[0],
+    gallery: [
+      ...shots(BARRY, ["2026-10-07 at 12.33.14 (4)", "2026-10-07 at 12.33.14 (10)", "2026-10-07 at 12.33.14", "2026-10-07 at 12.33.14 (6)", "2026-10-07 at 12.33.14 (8)", "2026-10-07 at 12.33.14 (1)"], "Barry Diawadou"),
+      ...photos(BARRY, ["13.04.57", "13.04.58 (2)", "13.04.59"], "Barry Diawadou"),
+    ],
     officialVisit: {
       title: "Visite officielle du ministre Paul Cedy sur le chantier Barry Diawadou de Matam",
       images: photos(VISITE, ["13.02.47", "13.02.47 (3)", "13.02.48", "13.02.49 (1)"], "Visite officielle du ministre Paul Cedy sur le chantier Barry Diawadou de Matam"),
     },
-    featured: true,
+  },
+  {
+    slug: "college-maneya",
+    title: "Collège Maneya",
+    category: "btp",
+    status: "ongoing",
+    description: "Réhabilitation du collège de Maneya en cours : remise en état des salles de classe, de la toiture et des façades.",
+    cover: photo(MANEYA, "13.01.39 (3)", "Collège Maneya"),
+    gallery: photos(
+      MANEYA,
+      ["13.01.39 (3)", "13.01.37 (1)", "13.01.39 (2)", "13.01.37", "13.01.39 (6)", "13.01.40 (3)", "13.01.40 (4)", "13.01.40 (2)"],
+      "Collège Maneya"
+    ),
+  },
+  {
+    slug: "chantier-nongo",
+    title: "Chantier Nongo",
+    category: "btp",
+    status: "ongoing",
+    description: "Chantier de construction à Nongo : fondations, voiles et dalles en béton armé suivis par African Global Business.",
+    cover: shots(NONGO, ["2026-10-07 at 12.52.01 (3)"], "Chantier Nongo")[0],
+    gallery: shots(
+      NONGO,
+      ["2026-10-07 at 12.52.01 (3)", "2026-10-07 at 1", "2026-10-07 56.45", "2026-10-07 at 12.48.38", "2026-10-07 at 12.56.45", "2026-10-07 at 12.52.01 (2)", "2026-10-07 at 12.52.01 (1)", "2026-10-03 at 13.12.57"],
+      "Chantier Nongo"
+    ),
+  },
+  {
+    slug: "chantier-taouyah",
+    title: "Chantier Taouyah",
+    category: "btp",
+    status: "ongoing",
+    description: "Chantier de construction à Taouyah, vu du ciel : coulage des dalles et avancement du gros œuvre.",
+    cover: shots(TAOUYAH, ["2026-10-07 at 14.53.32 (4)"], "Chantier Taouyah")[0],
+    gallery: shots(
+      TAOUYAH,
+      ["2026-10-07 at 14.53.32 (4)", "2026-10-07 at 12.53.54", "2026-10-07 at 14.53.31", "2026-10-07 at 14.53.32 (2)", "2026-10-07 at 14.53.32 (5)", "2026-10-07 at 14.53.32 (8)"],
+      "Chantier Taouyah"
+    ),
+  },
+  {
+    slug: "chantier-yimbaya-soloprimo",
+    title: "Chantier Yimbaya Soloprimo",
+    category: "btp",
+    status: "ongoing",
+    description: "Chantier de construction à Yimbaya Soloprimo : poteaux et dalle du rez-de-chaussée.",
+    cover: shots(YIMBAYA, ["2026-10-07 at 12.57.21"], "Chantier Yimbaya Soloprimo")[0],
+    gallery: shots(YIMBAYA, ["2026-10-07 at 12.57.21", "10-07 at 12.57.21", "2026-7 at 12.57.21"], "Chantier Yimbaya Soloprimo"),
   },
 ];
 
-export const FEATURED_PROJECTS = PROJECTS.filter((p) => p.featured);
+/** Réalisations mises en avant sur l'accueil, dans l'ordre d'affichage (elles ouvrent aussi la page Réalisations). */
+const FEATURED_SLUGS = [
+  "barry-diawadou",
+  "chantier-nongo",
+  "chantier-taouyah",
+  "chantier-yimbaya-soloprimo",
+  "chantier-matam",
+  "chantier-lansanaya",
+];
+
+/** Ordre de la page Réalisations : la sélection de l'accueil, puis ces projets. */
+const PORTFOLIO_ORDER = [
+  ...FEATURED_SLUGS,
+  "chantier-lambandji",
+  "livraison-cahiers-examens-nationaux",
+  "college-damakania",
+  "lycee-college-general-lansana-conte",
+  "college-maneya",
+];
+
+const rank = (slug: string) => {
+  const i = PORTFOLIO_ORDER.indexOf(slug);
+  return i === -1 ? PORTFOLIO_ORDER.length : i;
+};
+
+/** Toutes les réalisations, dans l'ordre de `PORTFOLIO_ORDER` (les projets absents de la liste passent à la fin). */
+export const PROJECTS: Project[] = [...ALL_PROJECTS].sort((a, b) => rank(a.slug) - rank(b.slug));
+
+export const FEATURED_PROJECTS = FEATURED_SLUGS.map((slug) => PROJECTS.find((p) => p.slug === slug)).filter(
+  (p): p is Project => p !== undefined
+);
 
 /** Sections de galerie affichées dans le détail d'un projet, dans l'ordre. */
 export function getGallerySections(project: Project): { title?: string; images: ProjectImage[] }[] {

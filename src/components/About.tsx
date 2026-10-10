@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MapPin, Target, Eye, Calendar, ChevronRight, Quote } from "lucide-react";
 import AnimatedCounter from "./AnimatedCounter";
+import { CATEGORY_LABELS, DEFAULT_DESCRIPTION, FEATURED_PROJECTS } from "@/data/projects";
 
-const MILESTONES = [
-  { year: "BTP & Construction", title: "Collège Damakania", desc: "Projet de réhabilitation du Collège Damakania réalisé par AGB." },
-  { year: "BTP & Construction", title: "Collège et Lycée Général Lansana Conté", desc: "Projet de réhabilitation du Collège et Lycée Général Lansana Conté de Kindia réalisé par AGB." },
-];
+const MILESTONES = FEATURED_PROJECTS.filter((project) => project.slug !== "chantier-lansanaya").map((project) => ({
+  year: CATEGORY_LABELS[project.category],
+  title: project.title,
+  desc: project.description ?? DEFAULT_DESCRIPTION,
+}));
 
 export default function About() {
   return (
