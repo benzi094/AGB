@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MapPin, Target, Eye, Calendar, ChevronRight, Quote } from "lucide-react";
 import AnimatedCounter from "./AnimatedCounter";
-import { CATEGORY_LABELS, DEFAULT_DESCRIPTION, FEATURED_PROJECTS } from "@/data/projects";
+import { CATEGORY_LABELS, FEATURED_PROJECTS } from "@/data/projects";
 
 const MILESTONES = FEATURED_PROJECTS.filter((project) => project.slug !== "chantier-lansanaya").map((project) => ({
   year: CATEGORY_LABELS[project.category],
   title: project.title,
-  desc: project.description ?? DEFAULT_DESCRIPTION,
+  desc: project.description,
 }));
 
 export default function About() {
@@ -182,9 +182,11 @@ export default function About() {
                     <h4 className="font-oswald text-base font-bold text-white uppercase group-hover:text-accent transition-colors">
                       {milestone.title}
                     </h4>
-                    <p className="text-white/60 text-xs leading-relaxed font-inter mt-1.5">
-                      {milestone.desc}
-                    </p>
+                    {milestone.desc && (
+                      <p className="text-white/60 text-xs leading-relaxed font-inter mt-1.5">
+                        {milestone.desc}
+                      </p>
+                    )}
                   </motion.div>
                 ))}
               </div>

@@ -20,7 +20,6 @@ import {
 import Image from "next/image";
 import {
   CATEGORY_LABELS,
-  DEFAULT_DESCRIPTION,
   STATUS_LABELS,
   countPhotos,
   type Project,
@@ -226,11 +225,13 @@ export default function ProjectModal({
               </div>
             </div>
 
-            <div className="px-5 py-8 sm:px-8 lg:px-10">
-              <p className="max-w-3xl font-inter text-[15px] sm:text-base leading-relaxed text-slate-600">
-                {project.description ?? DEFAULT_DESCRIPTION}
-              </p>
-            </div>
+            {project.description && (
+              <div className="px-5 py-8 sm:px-8 lg:px-10">
+                <p className="max-w-3xl font-inter text-[15px] sm:text-base leading-relaxed text-slate-600">
+                  {project.description}
+                </p>
+              </div>
+            )}
 
             {/* Galeries en mosaïque */}
             {hasStages

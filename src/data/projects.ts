@@ -37,9 +37,6 @@ export const STATUS_LABELS: Record<ProjectStatus, string> = {
   ongoing: "En cours",
 };
 
-export const DEFAULT_DESCRIPTION =
-  "Chantier réalisé par African Global Business, avec un suivi rigoureux des travaux de la préparation jusqu'à la livraison.";
-
 const photo = (folder: string, id: string, alt: string): ProjectImage => ({
   src: encodeURI(`/${folder}/WhatsApp Image 2026-10-03 at ${id}.webp`),
   alt,
@@ -68,7 +65,6 @@ const NONGO = "Chantier Nongo";
 const TAOUYAH = "Chantier Taouyah";
 const YIMBAYA = "Chantier Yimbaya Soloprimo";
 const LANSANAYA = "Chantier Lansanaya";
-const MATAM = "Chantier Matam";
 const BARRY = "Barry Diawadou";
 const CAHIERS = "Livraison des cahiers pour les examens nationaux";
 const VISITE = "Visite du ministre Paul Cedy sur le chantier Barry Diawadou de Matam"; // nom du dossier source
@@ -135,8 +131,6 @@ const ALL_PROJECTS: Project[] = [
     title: "Chantier Lansanaya",
     category: "btp",
     status: "ongoing",
-    description:
-      "Chantier de construction suivi par African Global Business : gros œuvre, maçonnerie et aménagements intérieurs.",
     cover: shots(LANSANAYA, ["2026-10-07 at 12.56.08 (1)"], "Chantier Lansanaya")[0],
     gallery: [
       ...shots(LANSANAYA, ["2026-10-07 at 12.56.08 (1)", "2026-10-07 at 12.56.08 (3)"], "Chantier Lansanaya"),
@@ -144,28 +138,14 @@ const ALL_PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "chantier-matam",
-    title: "Chantier Matam",
-    category: "btp",
-    status: "ongoing",
-    description: "Chantier de construction mené par African Global Business, avec un suivi rigoureux des travaux de construction et de finition.",
-    cover: photo(MATAM, "13.12.56 (2)", "Chantier Matam"),
-    gallery: photos(
-      MATAM,
-      ["13.12.56 (2)", "13.12.56 (1)", "13.12.57", "13.12.57 (1)", "13.12.57 (3)", "13.12.57 (5)"],
-      "Chantier Matam"
-    ),
-  },
-  {
     slug: "barry-diawadou",
     title: "Barry Diawadou",
     category: "btp",
     status: "ongoing",
-    description:
-      "Chantier de construction en cours à Matam, mené par African Global Business. Il a reçu la visite officielle du ministre Paul Cedy.",
+    description: "Chantier de Matam visité officiellement par le ministre Paul Cedy.",
     cover: shots(BARRY, ["2026-10-07 at 12.33.14 (4)"], "Barry Diawadou")[0],
     gallery: [
-      ...shots(BARRY, ["2026-10-07 at 12.33.14 (4)", "2026-10-07 at 12.33.14 (10)", "2026-10-07 at 12.33.14", "2026-10-07 at 12.33.14 (6)", "2026-10-07 at 12.33.14 (8)", "2026-10-07 at 12.33.14 (1)"], "Barry Diawadou"),
+      ...shots(BARRY, ["2026-10-07 at 12.33.14 (4)", "2026-10-07 at 12.33.14 (10)", "2026-10-07 at 12.33.14", "2026-10-07 at 12.33.14 (6)", "2026-10-07 at 12.33.14 (8)", "2026-10-07 at 12.33.14 (1)", "2026-10-07 at 12.33.14 (2)", "2026-10-07 at 12.33.14 (3)", "2026-10-07 at 12.33.14 (5)", "2026-10-07 at 12.33.14 (7)", "2026-10-07 at 12.33.14 (9)"], "Barry Diawadou"),
       ...photos(BARRY, ["13.04.57", "13.04.58 (2)", "13.04.59"], "Barry Diawadou"),
     ],
     officialVisit: {
@@ -191,11 +171,10 @@ const ALL_PROJECTS: Project[] = [
     title: "Chantier Nongo",
     category: "btp",
     status: "ongoing",
-    description: "Chantier de construction à Nongo : fondations, voiles et dalles en béton armé suivis par African Global Business.",
     cover: shots(NONGO, ["2026-10-07 at 12.52.01 (3)"], "Chantier Nongo")[0],
     gallery: shots(
       NONGO,
-      ["2026-10-07 at 12.52.01 (3)", "2026-10-07 at 1", "2026-10-07 56.45", "2026-10-07 at 12.48.38", "2026-10-07 at 12.56.45", "2026-10-07 at 12.52.01 (2)", "2026-10-07 at 12.52.01 (1)", "2026-10-03 at 13.12.57"],
+      ["2026-10-07 at 12.52.01 (3)", "2026-10-07 at 1", "2026-10-07 56.45", "2026-10-07 at 12.48.38", "2026-10-07 at 12.56.45", "2026-10-07 at 12.52.01 (2)", "2026-10-07 at 12.52.01 (1)", "2026-10-03 at 13.12.57", "2026-10-03 at 13.34.10", "2026-10-03 at 13.35.05", "2026-10-07 at 12.52.01 (4)", "2026-10-07 at 12.52.01"],
       "Chantier Nongo"
     ),
   },
@@ -204,11 +183,10 @@ const ALL_PROJECTS: Project[] = [
     title: "Chantier Taouyah",
     category: "btp",
     status: "ongoing",
-    description: "Chantier de construction à Taouyah, vu du ciel : coulage des dalles et avancement du gros œuvre.",
     cover: shots(TAOUYAH, ["2026-10-07 at 14.53.32 (4)"], "Chantier Taouyah")[0],
     gallery: shots(
       TAOUYAH,
-      ["2026-10-07 at 14.53.32 (4)", "2026-10-07 at 12.53.54", "2026-10-07 at 14.53.31", "2026-10-07 at 14.53.32 (2)", "2026-10-07 at 14.53.32 (5)", "2026-10-07 at 14.53.32 (8)"],
+      ["2026-10-07 at 14.53.32 (4)", "2026-10-07 at 12.53.54", "2026-10-07 at 14.53.31", "2026-10-07 at 14.53.32 (2)", "2026-10-07 at 14.53.32 (5)", "2026-10-07 at 14.53.32 (8)", "2026-10-07 at 14.53.32 (1)", "2026-10-07 at 14.53.32 (3)", "2026-10-07 at 14.53.32 (6)", "2026-10-07 at 14.53.32 (7)", "2026-10-07 at 14.53.32 (9)", "2026-10-07 at 14.53.32"],
       "Chantier Taouyah"
     ),
   },
@@ -217,9 +195,23 @@ const ALL_PROJECTS: Project[] = [
     title: "Chantier Yimbaya Soloprimo",
     category: "btp",
     status: "ongoing",
-    description: "Chantier de construction à Yimbaya Soloprimo : poteaux et dalle du rez-de-chaussée.",
     cover: shots(YIMBAYA, ["2026-10-07 at 12.57.21"], "Chantier Yimbaya Soloprimo")[0],
-    gallery: shots(YIMBAYA, ["2026-10-07 at 12.57.21", "10-07 at 12.57.21", "2026-7 at 12.57.21"], "Chantier Yimbaya Soloprimo"),
+    gallery: shots(
+      YIMBAYA,
+      [
+        "2026-10-07 at 12.57.21",
+        "10-07 at 12.57.21",
+        "2026-7 at 12.57.21",
+        "2026-10-22 at 21.23.05",
+        "2026-10-22 at 21.23.05 (1)",
+        "2026-10-22 at 21.23.05 (2)",
+        "2026-10-22 at 21.23.06",
+        "2026-10-22 at 21.23.06 (1)",
+        "2026-10-22 at 21.23.06 (2)",
+        "2026-10-22 at 21.23.06 (3)",
+      ],
+      "Chantier Yimbaya Soloprimo"
+    ),
   },
 ];
 
@@ -229,17 +221,20 @@ const FEATURED_SLUGS = [
   "chantier-nongo",
   "chantier-taouyah",
   "chantier-yimbaya-soloprimo",
-  "chantier-matam",
   "chantier-lansanaya",
 ];
 
-/** Ordre de la page Réalisations : la sélection de l'accueil, puis ces projets. */
+/** Ordre d'affichage de la page Réalisations. */
 const PORTFOLIO_ORDER = [
-  ...FEATURED_SLUGS,
+  "barry-diawadou",
+  "chantier-nongo",
   "chantier-lambandji",
+  "chantier-taouyah",
+  "chantier-yimbaya-soloprimo",
+  "chantier-lansanaya",
   "livraison-cahiers-examens-nationaux",
-  "college-damakania",
   "lycee-college-general-lansana-conte",
+  "college-damakania",
   "college-maneya",
 ];
 
