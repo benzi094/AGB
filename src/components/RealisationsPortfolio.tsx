@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CATEGORY_LABELS, PROJECTS, type Project, type ProjectCategory } from "@/data/projects";
 import FeaturedProject from "./FeaturedProject";
@@ -15,6 +15,19 @@ const CATEGORIES = (Object.keys(CATEGORY_LABELS) as ProjectCategory[]).filter((c
 export default function RealisationsPortfolio() {
   const [activeFilter, setActiveFilter] = useState<"all" | ProjectCategory>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // Lien profond « /realisations?projet=<slug> » (depuis une actualité) : ouvre directement la fiche.
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("projet");
+    const target = slug ? PROJECTS.find((p) => p.slug === slug) : undefined;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- lecture unique de l'URL au montage (indisponible au rendu serveur)
+    if (target) setSelectedProject(target);
+  }, []);
+
+  const closeProject = () => {
+    setSelectedProject(null);
+    if (window.location.search) window.history.replaceState(null, "", window.location.pathname);
+  };
 
   const filtered = PROJECTS.filter((p) => activeFilter === "all" || p.category === activeFilter);
   // Le premier projet de la liste filtrée est mis à la une, les suivants vont dans la grille.
@@ -88,7 +101,7 @@ export default function RealisationsPortfolio() {
           {selectedProject && (
             <ProjectModal
               project={selectedProject}
-              onClose={() => setSelectedProject(null)}
+              onClose={closeProject}
               next={nextOf(selectedProject)}
               onNavigate={setSelectedProject}
             />

@@ -13,9 +13,8 @@ const NAV_ITEMS = [
   { label: "À propos", href: "/#about" },
   { label: "Services", href: "/#services" },
   { label: "Réalisations", href: "/realisations" },
-  { label: "Démarche", href: "/#process" },
+  { label: "Actualités", href: "/actualites" },
   { label: "Valeurs", href: "/#team" },
-  { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -26,7 +25,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const onHome = pathname === "/";
   const isItemActive = (href: string) =>
-    href.startsWith("/#") ? onHome && activeSection === href.substring(2) : pathname === href;
+    href.startsWith("/#") ? onHome && activeSection === href.substring(2) : pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,7 +77,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden xl:flex items-center space-x-6">
+          <nav className="hidden xl:flex items-center gap-x-4 2xl:gap-x-6 mx-4">
             {NAV_ITEMS.map((item) => {
               const isActive = isItemActive(item.href);
               return (

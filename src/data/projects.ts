@@ -2,6 +2,8 @@
 // Les images proviennent de /public (aucun fichier n'est renommé ni déplacé) :
 // seules les photos retenues pour l'affichage sont listées ici.
 
+import { VIDEOS, type SiteVideo } from "./videos";
+
 export type ProjectCategory = "btp" | "fournitures";
 export type ProjectStatus = "completed" | "ongoing";
 
@@ -23,7 +25,8 @@ export interface Project {
   /** Pour un chantier suivi dans le temps : étapes puis résultat (remplace `gallery` à l'affichage). */
   workInProgress?: ProjectImage[];
   completed?: ProjectImage[];
-  video?: { src: string; poster: ProjectImage };
+  /** Vidéo du projet (déclarée une seule fois dans src/data/videos.ts). */
+  video?: SiteVideo;
   officialVisit?: { title: string; images: ProjectImage[] };
 }
 
@@ -62,7 +65,7 @@ const LANSANA = "Lycée et collège Général Lansana conté finis";
 const LAMBANDJI = "Chantier de Lambandji fini";
 const MANEYA = "Collège Maneya en cours";
 const NONGO = "Chantier Nongo";
-const TAOUYAH = "Chantier Taouyah";
+const TAOUYAH = "Chantier Taouyah_rogbane";
 const YIMBAYA = "Chantier Yimbaya Soloprimo";
 const LANSANAYA = "Chantier Lansanaya";
 const BARRY = "Barry Diawadou";
@@ -189,6 +192,7 @@ const ALL_PROJECTS: Project[] = [
       ["2026-10-07 at 14.53.32 (4)", "2026-10-07 at 12.53.54", "2026-10-07 at 14.53.31", "2026-10-07 at 14.53.32 (2)", "2026-10-07 at 14.53.32 (5)", "2026-10-07 at 14.53.32 (8)", "2026-10-07 at 14.53.32 (1)", "2026-10-07 at 14.53.32 (3)", "2026-10-07 at 14.53.32 (6)", "2026-10-07 at 14.53.32 (7)", "2026-10-07 at 14.53.32 (9)", "2026-10-07 at 14.53.32"],
       "Chantier Taouyah"
     ),
+    video: VIDEOS.taouyahRogbane,
   },
   {
     slug: "chantier-yimbaya-soloprimo",
@@ -212,6 +216,7 @@ const ALL_PROJECTS: Project[] = [
       ],
       "Chantier Yimbaya Soloprimo"
     ),
+    video: VIDEOS.yimbayaSoloprimo,
   },
 ];
 

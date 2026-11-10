@@ -11,7 +11,6 @@ import {
   Images,
   Landmark,
   MessageCircle,
-  Play,
   Tag,
   Video,
   X,
@@ -28,6 +27,7 @@ import {
 import { buildWhatsAppUrl } from "@/utils/whatsapp";
 import Lightbox from "./Lightbox";
 import PhotoMosaic from "./PhotoMosaic";
+import VideoPlayer from "./VideoPlayer";
 import useModalFocus from "./useModalFocus";
 
 interface LightboxState {
@@ -58,41 +58,6 @@ function InfoItem({ icon: Icon, label, value }: { icon: LucideIcon; label: strin
 }
 
 const STAGE_ICONS: Record<string, LucideIcon> = { "Pendant les travaux": Hammer, "Projet terminé": CircleCheck };
-
-// Vidéo : rien n'est chargé tant que l'utilisateur n'a pas cliqué sur la miniature.
-function ProjectVideo({ video }: { video: NonNullable<Project["video"]> }) {
-  const [playing, setPlaying] = useState(false);
-  return (
-    <div className="relative mx-auto w-full max-w-[240px] aspect-[9/16] max-h-[70vh] overflow-hidden rounded-[6px] bg-slate-900">
-      {playing ? (
-        <video
-          src={video.src}
-          poster={video.poster.src}
-          controls
-          autoPlay
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 w-full h-full object-contain"
-        />
-      ) : (
-        <button
-          type="button"
-          onClick={() => setPlaying(true)}
-          className="group absolute inset-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white"
-          aria-label="Lire la vidéo du chantier"
-        >
-          <Image src={video.poster.src} alt={video.poster.alt} fill sizes="240px" className="object-cover" />
-          <span className="absolute inset-0 bg-secondary/30 group-hover:bg-secondary/15 transition-colors" />
-          <span className="absolute inset-0 flex items-center justify-center">
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 group-hover:bg-white text-secondary shadow-lg transition-colors">
-              <Play className="h-6 w-6 fill-current" />
-            </span>
-          </span>
-        </button>
-      )}
-    </div>
-  );
-}
 
 // Modal unique : son contenu s'adapte aux données du projet (une galerie, deux galeries chronologiques,
 // vidéo, visite officielle, statut présent ou non).
@@ -256,8 +221,13 @@ export default function ProjectModal({
 
             {project.video && (
               <section className="px-5 pb-10 sm:px-8 lg:px-10">
-                <SectionTitle icon={Video}>Vidéo du chantier</SectionTitle>
-                <ProjectVideo video={project.video} />
+                <SectionTitle icon={Video}>Vidéo du projet</SectionTitle>
+                <VideoPlayer
+                  video={project.video}
+                  title={`Vidéo du projet ${project.title}`}
+                  sizes="(min-width: 1024px) 768px, 100vw"
+                  className={project.video.orientation === "portrait" ? "mx-auto max-w-[240px]" : "max-w-3xl"}
+                />
               </section>
             )}
             {visit && (
