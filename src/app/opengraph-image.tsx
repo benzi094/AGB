@@ -25,8 +25,11 @@ export default async function Image() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={src} width={720} height={300} alt="African Global Business" style={{ objectFit: "contain" }} />
-        <div style={{ marginTop: 40, fontSize: 38, color: "#0f172a", letterSpacing: 2 }}>
-          BTP · Infrastructures · Logistique · Import-Export
+        <div style={{ marginTop: 40, fontSize: 34, color: "#0f172a", letterSpacing: 2 }}>
+          BTP · Infrastructures · Fournitures
+        </div>
+        <div style={{ marginTop: 8, fontSize: 34, color: "#0f172a", letterSpacing: 2 }}>
+          Imprimerie · Import-Export · Logistique
         </div>
         <div style={{ marginTop: 12, fontSize: 30, color: "#475569" }}>Conakry, Guinée</div>
       </div>

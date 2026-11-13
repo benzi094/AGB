@@ -19,16 +19,16 @@ const TESTIMONIALS: Testimonial[] = [
     quote: "Construction, réhabilitation et travaux : des projets tels que le Collège Damakania et le Collège et Lycée Général Lansana Conté illustrent notre activité dans le BTP & la construction.",
   },
   {
-    name: "Logistique & Import-Export",
+    name: "Fournitures & Imprimerie",
     role: "Domaine 2",
-    company: "Acheminement & approvisionnement",
-    quote: "Des activités complémentaires pour accompagner l'organisation de l'acheminement et de l'approvisionnement de marchandises et de matériels.",
+    company: "Matériels & impression",
+    quote: "La fourniture de matériels ainsi que des services d'impression adaptés aux besoins professionnels de nos clients.",
   },
   {
-    name: "Imprimerie & Fournitures",
+    name: "Import-Export & Logistique",
     role: "Domaine 3",
-    company: "Impression & matériels",
-    quote: "Des services d'impression ainsi que la fourniture de matériels adaptés aux besoins professionnels de nos clients.",
+    company: "Approvisionnement & acheminement",
+    quote: "Des activités complémentaires pour accompagner l'approvisionnement et l'organisation de l'acheminement de marchandises et de matériels.",
   },
 ];
 

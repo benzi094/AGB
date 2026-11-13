@@ -7,7 +7,7 @@ import Image from "next/image";
 const REASONS = [
   {
     title: "Offre multisectorielle",
-    desc: "BTP, infrastructures, logistique, import-export, imprimerie et fournitures réunis au sein d'une même entreprise.",
+    desc: "BTP, infrastructures, fournitures, imprimerie, import-export et logistique réunis au sein d'une même entreprise.",
     icon: <Layers className="w-6 h-6 text-primary" />,
   },
   {
@@ -16,19 +16,19 @@ const REASONS = [
     icon: <HardHat className="w-6 h-6 text-accent-dark" />,
   },
   {
-    title: "Logistique & Import-Export",
-    desc: "Des activités complémentaires pour l'acheminement et l'approvisionnement de marchandises et de matériels.",
-    icon: <Truck className="w-6 h-6 text-primary" />,
-  },
-  {
-    title: "Imprimerie & Fournitures",
-    desc: "Des services d'impression et de fournitures adaptés aux besoins professionnels.",
-    icon: <Printer className="w-6 h-6 text-accent-dark" />,
-  },
-  {
     title: "Infrastructures",
     desc: "Une intervention sur des projets d'infrastructures, aux côtés de nos activités de construction.",
     icon: <Building2 className="w-6 h-6 text-primary" />,
+  },
+  {
+    title: "Fournitures & Imprimerie",
+    desc: "Des fournitures et des services d'impression adaptés aux besoins professionnels.",
+    icon: <Printer className="w-6 h-6 text-accent-dark" />,
+  },
+  {
+    title: "Import-Export & Logistique",
+    desc: "Des activités complémentaires pour l'approvisionnement et l'acheminement de marchandises et de matériels.",
+    icon: <Truck className="w-6 h-6 text-primary" />,
   },
   {
     title: "Interlocuteur direct",
