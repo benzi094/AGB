@@ -139,10 +139,10 @@ export default function About() {
               <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs text-white/80 font-inter w-full md:w-auto">
                 <li className="flex items-center"><ChevronRight className="w-3.5 h-3.5 text-primary-light mr-1 shrink-0" /> BTP &amp; Construction</li>
                 <li className="flex items-center"><ChevronRight className="w-3.5 h-3.5 text-primary-light mr-1 shrink-0" /> Infrastructures</li>
-                <li className="flex items-center"><ChevronRight className="w-3.5 h-3.5 text-primary-light mr-1 shrink-0" /> Logistique</li>
-                <li className="flex items-center"><ChevronRight className="w-3.5 h-3.5 text-primary-light mr-1 shrink-0" /> Import &amp; Export</li>
-                <li className="flex items-center"><ChevronRight className="w-3.5 h-3.5 text-primary-light mr-1 shrink-0" /> Imprimerie</li>
                 <li className="flex items-center"><ChevronRight className="w-3.5 h-3.5 text-primary-light mr-1 shrink-0" /> Fournitures</li>
+                <li className="flex items-center"><ChevronRight className="w-3.5 h-3.5 text-primary-light mr-1 shrink-0" /> Imprimerie</li>
+                <li className="flex items-center"><ChevronRight className="w-3.5 h-3.5 text-primary-light mr-1 shrink-0" /> Import &amp; Export</li>
+                <li className="flex items-center"><ChevronRight className="w-3.5 h-3.5 text-primary-light mr-1 shrink-0" /> Logistique</li>
               </ul>
             </motion.div>
 

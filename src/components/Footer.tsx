@@ -65,10 +65,10 @@ export default function Footer() {
               {[
                 "BTP & Construction",
                 "Infrastructures",
-                "Logistique",
-                "Import & Export",
-                "Imprimerie",
                 "Fournitures",
+                "Imprimerie",
+                "Import & Export",
+                "Logistique",
               ].map((service, i) => (
                 <li key={i}>
                   <Link 

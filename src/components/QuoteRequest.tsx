@@ -142,10 +142,10 @@ export default function QuoteRequest() {
                       >
                         <option value="btp">BTP &amp; Construction</option>
                         <option value="infrastructures">Infrastructures</option>
-                        <option value="logistique">Logistique</option>
-                        <option value="import-export">Import &amp; Export</option>
-                        <option value="imprimerie">Imprimerie</option>
                         <option value="fournitures">Fournitures</option>
+                        <option value="imprimerie">Imprimerie</option>
+                        <option value="import-export">Import &amp; Export</option>
+                        <option value="logistique">Logistique</option>
                       </select>
                     </div>
 

@@ -93,10 +93,10 @@ const jsonLd = {
       knowsAbout: [
         "BTP et construction",
         "Infrastructures",
-        "Logistique",
-        "Import-export",
-        "Imprimerie",
         "Fournitures",
+        "Imprimerie",
+        "Import-export",
+        "Logistique",
       ],
       ...(SOCIAL_LINKS.length ? { sameAs: SOCIAL_LINKS.map((l) => l.url) } : {}),
     },

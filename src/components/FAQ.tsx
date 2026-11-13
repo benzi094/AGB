@@ -16,7 +16,7 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "Dans quels secteurs AGB intervient-elle ?",
-    answer: "AGB intervient dans six secteurs : BTP & Construction, Infrastructures, Logistique, Import & Export, Imprimerie et Fournitures.",
+    answer: "AGB intervient dans six secteurs : BTP & Construction, Infrastructures, Fournitures, Imprimerie, Import & Export et Logistique.",
   },
   {
     question: "Où se situe AGB ?",

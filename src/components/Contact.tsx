@@ -63,8 +63,8 @@ export default function Contact() {
                     Secteurs d&apos;activité
                   </h3>
                   <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-inter">
-                    BTP &amp; Construction • Infrastructures • Logistique <br />
-                    Import &amp; Export • Imprimerie • Fournitures
+                    BTP &amp; Construction • Infrastructures • Fournitures <br />
+                    Imprimerie • Import &amp; Export • Logistique
                   </p>
                 </div>
               </div>
