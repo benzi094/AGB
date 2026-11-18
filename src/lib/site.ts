@@ -8,7 +8,8 @@ export const SITE_PHONE = "+224614585656";
 export const SITE_EMAIL = "contact@africanglobalbusiness.com";
 export const SITE_HOURS = { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:30", closes: "16:30" };
 // Réseaux sociaux officiels (URLs complètes). Alimente aussi `sameAs` dans les données structurées.
-export const SOCIAL_LINKS: { name: "Facebook" | "Instagram"; url: string }[] = [
+export const SOCIAL_LINKS: { name: "Facebook" | "Instagram" | "TikTok"; url: string }[] = [
   { name: "Facebook", url: "https://www.facebook.com/100088306002266/" },
   { name: "Instagram", url: "https://www.instagram.com/africanglobalbusiness" },
+  { name: "TikTok", url: "https://www.tiktok.com/@agb.gn" },
 ];
